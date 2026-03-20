@@ -8,8 +8,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Loans" />
-        <module name="Cards" />
         <module name="accounts" />
+        <module name="cards" />
+        <module name="Cards" />
+        <module name="loans" />
       </profile>
     </annotationProcessing>
   </component>
@@ -18,6 +20,8 @@
       <module name="Cards" options="-parameters" />
       <module name="Loans" options="-parameters" />
       <module name="accounts" options="-parameters" />
+      <module name="cards" options="-parameters" />
+      <module name="loans" options="-parameters" />
     </option>
   </component>
 </project>
