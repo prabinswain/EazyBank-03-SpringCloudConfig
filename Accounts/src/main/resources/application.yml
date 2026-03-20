@@ -14,3 +14,22 @@ spring:
     hibernate:
       ddi-auto: true
       show-sql: true
+  config:
+    import:
+      - "application_qa.yml"
+      - "application_prod.yml"
+  profiles:
+    active:
+      - "qa"
+
+build:
+  version: "3.0"
+
+accounts:
+  message: "Welcome to EazyBank accounts related local APIs"
+  contactDetails:
+    name: "Prabin - Developer"
+    email: "prabinswain027@gmail.com"
+  onCallSupport:
+    -(+91) 9853801349
+    -(+91) 0000000000
