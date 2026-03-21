@@ -2,11 +2,15 @@
 server:
   port: 9000
 spring:
+  application:
+    name: "cards"
+  profiles:
+    active: "prod"
   datasource:
     url: jdbc:h2:mem:prabindb
     driverClassName: org.h2.Driver
     username: root
-    password: ""
+    password: ''
   h2:
     console:
       enabled: true
@@ -16,21 +20,5 @@ spring:
       ddl-auto: update
     show-sql: true
   config:
-    import:
-      - "application-qa.yml"
-      - "application-prod.yml"
-  profiles:
-    active:
-      - "qa"
+    import: "optional:configserver:http://localhost:8071/"
 
-build:
-  version: "1.1"
-
-cards:
-  message: "Welcome to EazyBank cards related local APIs"
-  contactDetails:
-    name: "Subham - Lead TCS"
-    email: "subham@gmail.com"
-  onCallSupport:
-    - "(+91) 1234565432"
-    - "(+91) 9876543212"
