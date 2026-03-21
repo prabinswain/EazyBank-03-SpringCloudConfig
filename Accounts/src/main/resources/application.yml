@@ -1,6 +1,12 @@
 server:
   port: 8080
 spring:
+  application:
+    name: "accounts"
+  profiles:
+    active: "prod"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
   datasource:
     url: jdbc:h2:mem:prabindb
     driverClassNAme: org.h2.Driver
@@ -13,23 +19,4 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddi-auto: true
-      show-sql: true
-  config:
-    import:
-      - "application-qa.yml"
-      - "application-prod.yml"
-  profiles:
-    active:
-      - "qa"
-
-build:
-  version: "3.0"
-
-accounts:
-  message: "Welcome to EazyBank accounts related local APIs"
-  contactDetails:
-    name: "Prabin - Developer"
-    email: "prabinswain027@gmail.com"
-  onCallSupport:
-    -(+91) 9853801349
-    -(+91) 0000000000
+    show-sql: true
