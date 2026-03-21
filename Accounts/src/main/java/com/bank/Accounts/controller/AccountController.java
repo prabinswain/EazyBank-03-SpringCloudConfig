@@ -41,8 +41,8 @@ public class AccountController {
 
     private final IAccountService accountService;
 
-    @Autowired
-    private AccountsContactInfoDto accountsContactInfoDto;
+
+    private final AccountsContactInfoDto accountsContactInfoDto;
 
     @Value("${build.version}")
     private String buildVersion;
@@ -50,8 +50,9 @@ public class AccountController {
     @Autowired
     private Environment environment;
 
-    public AccountController(IAccountService accountService) {
+    public AccountController(IAccountService accountService, AccountsContactInfoDto accountsContactInfoDto) {
         this.accountService = accountService;
+        this.accountsContactInfoDto = accountsContactInfoDto;
     }
 
     @Operation(
