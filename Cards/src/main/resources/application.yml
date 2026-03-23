@@ -1,6 +1,8 @@
-
+# server port
 server:
   port: 9000
+
+# spring related configurations
 spring:
   application:
     name: "cards"
@@ -21,4 +23,14 @@ spring:
     show-sql: true
   config:
     import: "optional:configserver:http://localhost:8071/"
-
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    username: guest
+    password: guest
+# actuator related configurations
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
