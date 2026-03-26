@@ -1,6 +1,11 @@
+#server port
 server:
   port: 8090
+
+  #spring related configurations
 spring:
+  application:
+    name: "loans"
   datasource:
     url: jdbc:h2:mem:prabindb
     driverClassNAme: org.h2.Driver
@@ -14,3 +19,18 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  profiles:
+    active: "prod"
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    username: guest
+    password: guest
+# actuator related configurations
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -1,0 +1,54 @@
+#server pory number
+server:
+  port: 8071
+
+# spring related configuration properties
+spring:
+  application:
+    name: "configserver"
+  profiles:
+#    active: native
+    active: git
+
+  # cloud configurations
+  cloud:
+    config:
+      server:
+#       native:
+#          search-locations: "classpath:/config" -- classpath inside server
+#          search-locations: "file:///D:/PrabinData/Projects/Microservice/EazyBank-03-SpringCloudConfig/ConfigFilesForAllServices"
+        git:
+          uri: "https://github.com/prabinswain/EazyBank-ConfigServers.git"
+          default-label: main
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
+
+    # rabbitmq configurations
+    rabbitmq:
+      host: "localhost"
+      port: 5672
+      username: "guest"
+      password: "guest"
+
+#secrete key for passwords
+encrypt:
+  key: "ejfhvbe5y92380ru2qelknfwqehf98w"
+
+# actuator related configurations
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  # for readiness and liveness
+  health:
+    readiness-state:
+      enabled: true
+    liveness:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true # as we are going fetch through url so we need to enable
+

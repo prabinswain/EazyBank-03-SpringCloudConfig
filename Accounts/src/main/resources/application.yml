@@ -1,16 +1,38 @@
+#server port number
 server:
   port: 8080
+
+#spring related configurations
 spring:
+  application:
+    name: "accounts"
+  profiles:
+    active: "qa"
   datasource:
     url: jdbc:h2:mem:prabindb
-    driverClassNAme: org.h2.Driver
+    driverClassName: org.h2.Driver
     username: root
-    password: ""
+    password: ''
   h2:
     console:
       enabled: true
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddi-auto: true
-      show-sql: true
+      ddl-auto: update
+    show-sql: true
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    username: guest
+    password: guest
+
+# actuator related configurations
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+

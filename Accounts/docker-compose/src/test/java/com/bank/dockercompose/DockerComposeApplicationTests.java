@@ -1,13 +1,13 @@
-package com.bank.cards;
+package com.bank.dockercompose;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CardsApplicationTests {
+class DockerComposeApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
